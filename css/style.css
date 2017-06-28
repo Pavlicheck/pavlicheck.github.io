@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+table {
+	border-collapse: collapse;
+	background-color: #fff;
+}
+td {
+	content: '';
+	border: 1px solid #ccc;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.snake {
+	background-color: #666;
+
+}
+
+.snakeShit {
+	background-color: #666;
+	box-shadow: 0 0 10px rgba(7,199,204,1);
+}
+
+.prise, .sPrise {
+	background-color: #FF22BA;
+}
+
+.wall, .sWall {
+	background-color: #222;
+}
+
+.shit, .sShit {
+	background: #07C7CC;
+}
+
+.field, .sField {
+	background-color: #FFDD21;
+}
+
+.speed, .sSpeed{
+	background-color: #B2639A;
+}
+
+.cube {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+body {
+	
+	overflow: hidden;
+	background-color: #eee;
+	font-family: 'Dancing Script', cursive;
+}
+
+#field {
+	color: #000;
+	width: 100%
+	height: 100%;
+}
+
+.wrap {
+	/*width: 800px;*/
+	margin: 0 auto;
+	position: relative;
+}
+article {
+	width: 60%;
+	position: absolute;
+	top: 20px;
+	left: 20%;
+	display: block;
+}
+.text {
+	padding-left: 20px;
+}
+
+.start-window {
+	background-color: #fff;
+	z-index: 100;
+	border-radius: 20px;
+	border: 1px #888 solid;
+	margin-top: 0 50px;
+	padding: 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+
+}
+
+.start-window header {
+	width: 100px;
+	margin: 0 auto;
+}
+#btn {
+	background-color: #fff;
+	color: #000;
+	width: 100px;
+	margin: 0px auto 20px auto;
+	border: 1px solid #333;
+	padding: 5px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 24px;
+	outline: none;
+	display: block;
+	font-family: 'Dancing Script', cursive;
+
+}
+.legend	{
+	margin: 25px 0 25px 25px;
+}
+
+#btn:hover {
+	background-color: #ccc;
+}
+.legend>p:nth-of-type(1)::before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: #FF22BA;
+	position: absolute;
+
+	display: block;
+}
+.legend>p::before {
+	left: 40px;
+}
+.legend>p:nth-of-type(2)::before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: #B2639A;
+	position: absolute;
+
+	display: block;
+}
+
+.legend>p:nth-of-type(3)::before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: #07C7CC;
+	position: absolute;
+
+	display: block;
+}
+
+.legend>p:nth-of-type(4)::before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: #FFDD21;
+	position: absolute;
+
+	display: block;
+}
+
+.legend>p:nth-of-type(5)::before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: #000;
+	position: absolute;
+
+	display: block;
+}
+
+.legend>p:nth-of-type(6)::before {
+	
+}
