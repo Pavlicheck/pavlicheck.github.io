@@ -40,13 +40,14 @@ $('.main-menu').height(menuHeight);
 $('.main-menu').width(menuWidth);
 $('.main-menu').css({"left": plMenu, 'top': ptMenu});
 $("span.cock").css({'font-size': fzcock + "px"});
+$('.link span').css({'font-size': fzlink + "px"});
 });
 
 
 
 
 
-$('.link').on('click', function() {
+$('.link').on('mousedown', function() {
 		$('.activ').removeClass('activ');
 		$('.activ-tab').removeClass('activ-tab');
 		$($(this).attr('data-tab-class')).addClass('activ-tab');
