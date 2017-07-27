@@ -2,157 +2,29 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css">
 	<title>Cockroach</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src='js/jquery-3.2.1.min.js' type="text/javascript"></script>
 </head>
 <body>
 
-<div class='wrap' id='wrap'>
-<p>Score: <span id="score"></span></p>
-	<table id='field'>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
-
-</div>
-<article>
-	<div class="start-window" id="str">
-	<header><h1>Cockroach</h1></header>
-	<div class="text">
-		<p>Hi! Read this before start the game!</p>
-		<div class="legend">
-		<p><b>Candy!</b> You need to collect as much as posible candies.</p>
-		<p><b>Speed!</b> You can increase your speed, if you find it.</p>
-		<p><b>Armor!</b> You can destroy walls having it. You'll get candy if you destroy the wall!</p>
-		<p><b>Expander of field</b> Collect it and expand your field!</p>
-		<p><b>The wall</b> If you crash into the wall with out armor, you'll die!</p>
+	<div class="main-wrap">
+	<span class="cock">COCKROACH</span>
+		<div class="main-menu">
+			<header>
+				<div class="link menu-link" data-tab-class=".menu-tab"><span>Menu</span></div>
+				<div class="link help-link" data-tab-class=".help-tab"><span>Help</span></div>
+			</header>
+			<section>
+				<div class="tabs activ-tab welcom-tab">
+					<span>Welcom</span>
+				</div>
+				<div class="tabs menu-tab">menu</div>
+				<div class="tabs help-tab">help</div>
+			</section>
 		</div>
-		<footer>
-		<p>Collect candies! Hurry up! If you late, item will turn into the wall!</p>
-		</footer>
-		</div>
-		<button id='btn' autofocus>Start</button>
 	</div>
-	</article>
-<script></script>
-<script src='js/main.js'></script>			
+	<script src='js/main.js' type="text/javascript"></script>
 </body>
 </html>
