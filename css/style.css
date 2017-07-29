@@ -1,168 +1,88 @@
 /*Colors:
-	darkblue: #2C3E50
-	lightblue: #6DBCDB;
-	Red: #FC4349
-	Darkgray: #D7DADB
-	LightGray: #*/
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,400,600,600i');
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,400,600,600i');
+		background-menu: #DB9E36
+		background-game: #105B63
+		button-menu: #BD4932
+		candy: #F2385A
+		field: #F5A503
+		wall: #000
+		you: #E9F1DF
+		speed: #3AA1BF
+		Shield: #56D9CD
+*/
 
-body {
-	 -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-focus-ring-color: rgba(0,0,0,0);
-	 background-image: linear-gradient(135deg, #fff, #6DBCDB);
-	background-position: 0 0;
-	-webkit-background-size: contain;
-	background-size: contain;
-	/*font-family: 'Raleway', sans-serif;*/
-	font-family: 'Nunito', sans-serif;
-	font-size: 8px;
-	
-}
-
-.main-wrap {
-
-}
-
-.main-menu {
+.background {
+	background-color: #DB9E36;
+	overflow: hidden;
 	position: fixed;
-	left: 50%;
-	top: 50%;
-	color: #2C3E50;
-	text-shadow: 4px 4px 2px rgba(0,0,0,.3);
+	top:0;
+	left:0;
+	z-index: -1;
 
 }
 
-span.cock {
-	position: fixed;
-	display: block;
-	margin-top: 10%;
-	font-weight: bold;
-	width: 100%;
-	text-align: center;
-	color: transparent;
-	text-shadow: 2px 2px rgba(255,255,255, .3), -2px -2px rgba(0,0,0,.3); 
-}
-
-.main-menu header {
-	/*background-color: #fff;*/
-	height: 11%;
-}
-
-.main-menu section {
-	height: 87%;
-	width: 	100%;
-	position: absolute;
-	bottom: 0;
-	background-color: #fff;
-	/*padding-top: 4px;*/
-	-webkit-box-sizing: 	border-box;
-	-moz-box-sizing: 	border-box;
-	box-sizing: 	border-box;
-	background-clip: content-box;	
-	box-shadow: 5px 5px 5px rgba(0,0,0,.5);
-	/*border-radius: 0 0 20px 20px;*/
-	/*box-shadow: inset 0 0 0px 0px #D7DADB;*/
-	animation: tabs-move 1s backwards .5s;
-}
-
-.help-link, .menu-link {
-	width: 49.5%;
-	display: inline-block;
-	height: 11%;
-	position: absolute;
-	/*background-color: green;*/
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-background-clip: content-box;
-	-moz-background-clip: content-box;
-	background-clip: content-box;
-	transition-duration: .1s;
-	transition-delay: 0;
-	cursor: pointer;
-	outline: none;
-}
-
-.help-link {
-	right: 0;
-	background-color: #fff;
-	/*border-radius: 0 20px 0 0;*/
-	box-shadow: 5px 5px 5px rgba(0,0,0,.5);
-	animation: help-move 1s backwards .5s;
-
-}
-
-.menu-link {
+.shatter-main {
+	top:0;
 	left: 0;
-	background-color: #fff;
-	/*border-radius: 20px 0 0 0;*/
-	box-shadow: 5px 5px 5px rgba(0,0,0,.5);
-	animation: menu-move 1s backwards .5s;
-}
-
-.link {
-	text-align: center;
-	padding-top: 5px;
-}
-
-.link span {
-	/*font-size: 3em;*/
-
+	position: fixed;
+	background-image: linear-gradient(140deg, black 20%, transparent 55%),
+	linear-gradient(-140deg, black 20%, transparent 55%);
 }
 
 
-.activ {
-	transform: translateY(17%);
-}
-/*-----------------------------------------------tabs----------------*/
-.tabs {
-	display: none;
-}
-
-.activ-tab {
-	display: inline-block;
+/*cocroach*/
+.cockroach {
+	position: fixed;
+	width: 20%;
+	height: 40%;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
 }
 
-
-@keyframes help-move{
-	from {transform: translate(500px, -500px) rotate(90deg);}
-	to {transform: translate(0, 0) rotate(0deg);}
-}
-
-@keyframes menu-move{
-	from {transform: translate(-500px, -500px) rotate(-90deg);}
-	to {transform: translate(0, 0) rotate(0deg);}
-}
-
-@keyframes tabs-move {
-	from {transform: translateY(800px);}
-	to {transform: translateY(0);}
-}
-
-@keyframes welcom {
-	0% {opacity: 0;}
-	40% {opacity: 1;}
-	80% {opacity: 1;}
-	100% {opacity: 0;}
-}
-
-.tabs {
+.c-body {
 	width: 100%;
 	height: 100%;
-	text-align: right;
+	border-radius: 50%;
+	transform: translate(-20%, 20%) rotate(-35deg) scale(1.5, 1);
+	transform-origin: 50 50%;
+	background-color: black;
+	position: relative;
+	/*background-image: radial-gradient(ellipse farthest-side at 30px 20px, black 60%, transparent 60%);*/
 }
 
+.c-eyes {
+	width: 7.5%;
+	height: 10%;
+	background-color: #fff;
+	position: absolute;
+	z-index: 5;
+	border-radius: 50%;
+}
 
-.welcom-tab span {
-	display: block;
-	font-size: 6em;
-	margin-top: 10%;
+.c-eyes.l {
+	right: 10%;
+	top: 28%;
+}
+
+.c-eyes.r {
+	right: 6%;
+	top: 52%;
+}
+
+.cockroach::before {
+	content: '';
 	width: 100%;
-	text-align: center;
-	opacity: 0;
-	animation: welcom 5s forwards 2s alternate;
-
+	height: 100%;
+	border: 40px transparent solid;
+	border-bottom: 15px solid black;
+	border-left: 15px solid black;
+	position: absolute;
+	border-radius: 50%;
+	z-index: 0;
+	transform: scale(1.5, 1.5) rotate(0deg);
+	right: -90%;
+	top: -85%;
+	/*background-color: red;*/
+	
 
 }
-
