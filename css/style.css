@@ -22,7 +22,20 @@
 	outline: none!important;
 	 -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
 	 -webkit-tap-highlight-color: transparent!important; 
+	 font-family: "Roboto condensed";
 }
+
+.dark {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: black;
+	z-index: 100;
+	overflow: hidden;	
+}
+
 .background {
 	background-color: #DB9E36;
 	background-image:   radial-gradient(circle,  transparent 50%, black),
@@ -32,6 +45,8 @@
 	top:0;
 	left:0;
 	z-index: -1;
+	width: 100%;
+	height: 100%;
 		
 }
 
@@ -41,7 +56,6 @@ span.cockroach-text {
 	width: 	100vw;
 	font-size: 	192px;
 	font-weight: bold;
-	font-family: "Roboto condensed";
 	text-shadow: 2px 2px rgba(0, 0, 0, .6);
 	text-indent: .4em;
 	text-align: center;
@@ -106,6 +120,53 @@ span.cockroach-text {
 }
 
 
+/*-----------------------score---------------------*/
+.score {
+	position: fixed;
+	display: flex;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 200;
+	color: white;
+	background: rgba(0,0,0,.9);
+}
+
+.score-wrap {
+	display: flex;
+	flex-direction: column;	
+	align-items: center;
+	margin: 0;
+
+	
+}
+
+.score-wrap li {
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;	
+	list-style: none;
+	font-size: 48px;
+	line-height: 64px;
+	text-shadow: 0 0 12px rgba(255,255,255,.5);
+	
+}
+
+.score-wrap li.best {
+	padding-bottom: 10px;
+}
+
+.score-header {
+	letter-spacing: 10px;
+	font-size: 88px;
+	line-height: 150px;
+	text-shadow: none;
+	border-bottom: 2px solid white;
+}
+
 /*//----------------------Media--------------------------------------*/
 
 @media (orientation: portrait) and (max-aspect-ratio: 4/3) {
@@ -118,7 +179,20 @@ span.cockroach-text {
 		.buttons-wrap  ul li button {
 			width: 60vw;
 		}
+		
+		.score-wrap li {
+			display: inline-block;
+			text-align: center;
+			white-space: nowrap;	
+			list-style: none;
+			font-size: 72px;
+			line-height: 88px;
+	
+		}
 
+		.score-header {
+			letter-spacing: 10px;
+			font-size: 112px;
 		
 }
 
@@ -146,3 +220,8 @@ span.cockroach-text {
 }
 
 
+/*------------------animation-------------------*/
+/*@keyframes hide {
+	from { opacity: 100%; }
+	to {opacity: 0;	}
+}*/
