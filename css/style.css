@@ -225,7 +225,7 @@ span.cockroach-text {
 }
 
 
-@media (orientation: landscape) and (max-width: 1200px) {
+/*@media (orientation: landscape) and (max-width: 1200px) {
 	span.cockroach-text {
 		font-size: 80px;
 	}
@@ -258,7 +258,7 @@ span.cockroach-text {
 			letter-spacing: 10px;
 			font-size: 112px;
 		
-}
+}*/
 }
 
 /*------------------animation-------------------*/
