@@ -16,13 +16,13 @@
 	background: #DB9E36 linear-gradient(to bottom left, black 50%, transparent 50%);
 	background-size: contain;
 }*/
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 /*--------------background--------------------------------*/
 * {
 	outline: none!important;
 	 -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
 	 -webkit-tap-highlight-color: transparent!important; 
-	 font-family: "Roboto condensed";
+	 font-family: 'Roboto Condensed', sans-serif;
 }
 
 
