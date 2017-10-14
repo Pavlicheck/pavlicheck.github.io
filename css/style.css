@@ -128,7 +128,7 @@ span.cockroach-text {
 		}
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (min-resolution: 300dpi) {
 	span.cockroach-text {
 		font-size: 80px;
 	}
