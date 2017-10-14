@@ -129,8 +129,8 @@ span.cockroach-text {
 	display: flex;
 	left: -3000px;
 	top: 0;
-	height: 90vh;
-	width: 90vw;
+	height: 100%;
+	width: 100%;
 	flex-direction: column;
 	justify-content: flex-start;
 	z-index: 200;
