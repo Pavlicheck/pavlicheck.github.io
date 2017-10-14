@@ -71,6 +71,7 @@ span.cockroach-text {
 /*------------buttons----------------*/
 
 .buttons-wrap {
+	position: fixed;
 	display: flex;
 	width: 	100%;
 	margin-top: 40vh;
@@ -222,6 +223,42 @@ span.cockroach-text {
 		}
 }
 
+
+@media (orientation: landscape) and (max-width: 1200px) {
+	span.cockroach-text {
+		font-size: 80px;
+	}
+
+
+	.buttons-wrap  ul{
+			display: flex;
+			height:	40vh;
+	}
+
+	.buttons-wrap  ul li button {
+			width: 40vw;
+			height: 10vh;
+			font-size: 8vh;
+
+		}
+
+		.score-wrap li {
+			display: inline-block;
+			text-align: center;
+			white-space: nowrap;	
+			list-style: none;
+			font-size: 48px;
+			line-height: 64px;
+			border: 1px solid white;
+	
+		}
+
+		.score-header {
+			letter-spacing: 10px;
+			font-size: 112px;
+		
+}
+}
 
 /*------------------animation-------------------*/
 /*@keyframes hide {
