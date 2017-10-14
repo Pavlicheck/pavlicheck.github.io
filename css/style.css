@@ -20,6 +20,8 @@
 /*--------------background--------------------------------*/
 * {
 	outline: none!important;
+	 -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+	 -webkit-tap-highlight-color: transparent!important; 
 }
 .background {
 	background-color: #DB9E36;
@@ -90,7 +92,7 @@ span.cockroach-text {
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    
+
 }
 
 .buttons-wrap  ul li button:hover {
