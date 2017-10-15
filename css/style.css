@@ -215,6 +215,7 @@ span.cockroach-text {
 @media (orientation: landscape) and (max-width: 1024px) {
 	
 	span.cockroach-text {
+		margin-top: 10vh;
 		font-size: 80px;
 	}
 
