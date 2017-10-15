@@ -198,16 +198,17 @@ span.cockroach-text {
 
 #play-field {
 	display: flex;
-	width: 90vh;
-	height: 90vh;
-	border: 1px solid red;
+	width: 80vh;
+	height: 80vh;
+	/*border: 1px solid red;*/
 	flex-direction: column;
 }
 
 .play-cell {
 	flex-grow: 1;
-	background: blue;
+	background: #105B63;
 	margin: 1px;
+	opacity: 0;
 }
 
 .play-row {

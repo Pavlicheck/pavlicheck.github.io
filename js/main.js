@@ -24,22 +24,21 @@ $('#score').click(scoreShow);
 $('.score-btn-back').on('click', scoreHide);
 
 
-$('#start').on('click', function() {
-
-			document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
-
-function requestFullscreen(element) {
-	if (element.requestFullscreen) {
-		element.requestFullscreen();
-	} else if (element.mozRequestFullScreen) {
-		element.mozRequestFullScreen();
-	} else if (element.webkitRequestFullScreen) {
-		element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+function createField(width, height) {
+	let fieldStr = '';
+	for (let rowId=0; rowId < height; rowId++) {
+		fieldStr += '<div class="play-row">';
+		for (let cellId = 0; cellId < width; cellId++) {
+			fieldStr += '<div class="play-cell" data-type="empty"></div>';
+		}
+		fieldStr += '</div>'
 	}
+	$('#play-field').append(fieldStr);
+
+	$('.play-cell').each(function() {
+		let cooldown = (Math.random().toFixed(3))*1000 + 500;
+		$(this).delay(100).animate({opacity: 1}, cooldown)
+	})
 }
 
-if (document.fullscreenEnabled) {
-	requestFullscreen(document.documentElement);
-}
-
-})
+createField(8,8);
