@@ -5,18 +5,24 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
 	<title>Cockroach</title>
-	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div class="dark"></div>
 <div id="playground">
-	<div class="play-state"></div>
-	<div class="play-counter">
-		<span class="score"></span><span class="time"></span>
+
+	<div class="play-state">
+		
 	</div>
+
+	<div class="play-counter">
+		<span class="play-score">Score: <span>0</span></span>
+		<span class="play-time">Time: <span>00:00</span></span>
+	</div>
+
 	<div id="play-field"></div>
+
 	<div class="play-buttons">
 		<button class="play-btn back">Back</button>
 		<button class="play-btn pause">Pause</button>
@@ -31,7 +37,7 @@
 		<li class="score-last"><span class="score-type">Last score: </span><span class="score-value">200</span></li>
 		<li class="score-time"><span class="score-type">Wasted time: </span><span class="score-value">200</span></li>
 		<li class="score-candies"><span class="score-type">Candies: </span><span class="score-value">200</span></li>
-		<li class="score-walls"><span class="score-type">Crashed walls: </span><span class="score-value">200</span></li>
+		<li class="score-holes"><span class="score-type">Crashed holes: </span><span class="score-value">200</span></li>
 		<li class="score-field"><span class="score-type">Field: </span><span class="score-value">200</span></li>
 		<li class="score-speed"><span class="score-type">Speed: </span><span class="score-value">200</span></li>
 		<li class="score-shield"><span class="score-type">Shield: </span><span class="score-value">200</span></li>
