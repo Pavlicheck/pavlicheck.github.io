@@ -184,11 +184,11 @@ span.cockroach-text {
 }
 
 #playground {
-	display: flex;
+	display: none;
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background: rgba(0,0,0,.9);
+	background: rgba(0,0,0,.7);
 	z-index: 200;
 	top: 0;
 	left: 0;
@@ -354,7 +354,7 @@ span.cockroach-text {
 }
 
 .play-cell[data-type = 'empty'] {
-	background: rgba(180,180,180,.4);
+	background: rgba(180,180,180,.5);
 }
 
 .play-state {
@@ -367,6 +367,7 @@ span.cockroach-text {
 	align-items: center;
 	background: rgba(0,0,0,.7);
 	opacity: 0;
+	display: none;
 	z-index: 250;
 }
 
@@ -392,6 +393,9 @@ span.cockroach-text {
 	color: rgba(255,255,255,.7);
 	background: none;
 	transition: .2s;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .play-state button:hover {

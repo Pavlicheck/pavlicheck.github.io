@@ -9,13 +9,14 @@ let gameInterval,
 	fieldArray = [],
 	playerX = 0,
 	playerY = 0,
-	types = ['speed', 'field', 'candy', 'hole', 'shield'],
+	types = ['hole', 'speed', 'field', 'candy', 'hole', 'shield'],
 	// types = ['shield'],
 	timeCounter = {max: 60},
-	itemsCounter = {max: 180},
-	speedCounter = {max: 30},
+	itemsCounter = {max: 120},
+	speedCounter = {max: 20},
 	countItems = {field: 0, candy: 0, hole: 0, shield: 0, speed: 0},
-	delayToHole = 3000;
+	delayToHole = 1000;
+	buttonsFlag = 'game'; 
 
 	window.onkeydown = function(key) {
 			switch (key.keyCode) {
@@ -42,18 +43,78 @@ let gameInterval,
 					break;
 				}
 				case (32): {
-					$('#repat').click;
+					switch (buttonsFlag) {
+						case('gameover'): {
+								buttonsFlag = 'game';
+								createField(8,8); 
+								$('.play-state').css({display: 'none', opacity: 0}).empty();
+								break;
+						}
+						case('pause'): {
+								buttonsFlag = 'game';
+								gameInterval = setInterval(() => play(), fps);
+								$('.play-state').css({display: 'none', opacity: 0}).empty();
+								break;
+						}
+						case('exitGame'): {
+								buttonsFlag	= 'menu';
+								$('.play-state').css({display: 'none', opacity: 0}).empty();
+								break;
+						}
+					} 
+					break;
+				}
+				case (27): {
+					switch (buttonsFlag) {
+						case('game'): {
+								pause();
+							break;
+						}
+						case('pause'): {
+								buttonsFlag = 'game';
+								gameInterval = setInterval(() => play(), fps);
+								$('.play-state').css({display: 'none', opacity: 0}).empty();
+								break;
+						}
+						case('exitGame'): {
+							buttonsFlag = 'game';
+							gameInterval = setInterval(() => play(), fps);
+							$('.play-state').css({display: 'none', opacity: 0}).empty();
+							break;
+						}
+					}
 					break;
 				}
 			}
 	}
 
 
+function start() {
+		buttonsFlag	= 'game';
+		$('#playground').css('display', 'flex').animate({opacity: 1}, 500);
+		createField(8,8);
+}
 
+function pause() {
+	buttonsFlag	= 'pause';
+	clearInterval(gameInterval);
+	$('.play-state').append('<h1>Pause</h1><button id="continue">Continue</button><button id="menu">Menu</button>').css('display', 'flex').animate({opacity: 1}, 500);
+	$('#continue').on('click', () => {gameInterval = setInterval(() => play(), fps)
+								$('.play-state').css({display: 'none', opacity: 0}).empty();
+								buttonsFlag = 'game';
+								});
+	$('#menu').mousedown(() => exit());
+}
 
-
-
-
+function exit() {
+	buttonsFlag	= 'menu';
+	$('#play-field').empty();
+	$('.play-state').empty().css({display: 'none', opacity: 0});
+	// $('.play-counter').empty().css({display: 'none', opacity: 0});
+	// $('.play-buttons').empty().css({display: 'none', opacity: 0});
+	clearInterval(gameInterval);
+	$('#playground').css({display: 'none', opacity: 0});
+}
 
 
 
@@ -112,21 +173,6 @@ function handleTouchMove(evt) {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function rotatePlayer(deg) {
 		$('.play-cell[data-type = "player"]').css('transform', 'rotate(' + deg + ')')
 }
@@ -144,7 +190,7 @@ function scoreShow() {
 		$('.score').css('display','block').animate({left: 0}, 500);
 		$('.score-best .score-value').text(window.localStorage.getItem('bestScore'));
 		$('.score-last .score-value').text(window.localStorage.getItem('lastScore'));
-		$('.score-time .score-value').text(window.localStorage.getItem('wasteTime'));
+		$('.score-time .score-value').text(window.localStorage.getItem('allTime'));
 		$('.score-candies .score-value').text(window.localStorage.getItem('candy'));
 		$('.score-holes .score-value').text(window.localStorage.getItem('hole'));
 		$('.score-field .score-value').text(window.localStorage.getItem('field'));
@@ -335,13 +381,17 @@ let actions = {
 
 	hole: function	() {
 		countItems.hole++;
+		buttonsFlag = 'gameover';
 		if (hasShield) {hasShield = false; gameScore++; $('.play-score span').text(gameScore); return;};
 		clearInterval(gameInterval);
 		safeData();
-		$('.play-state').animate({opacity: 1}, 500).delay(500).append('<h1>Game over</h1><span>Result: ' + gameScore + '</span><button id="repeat">Repeat</button><button id="exit">Exit</button>');
-		$('#repeat').on('click',() => { createField(8,8); $('.play-state').animate({opacity: 0}, 500).empty(); $('.play-state')});
+		$('.play-state').css('display', 'flex').animate({opacity: 1}, 500).delay(500).append('<h1>Game over</h1><span>Result: ' + gameScore + '</span><button id="repeat">Repeat</button><button id="menu">Exit</button>');
+		$('#repeat').mousedown(() => { createField(8,8); $('.play-state').css({display: 'none', opacity: 0}).empty();});
+		$('#menu').mousedown(() => exit());
+
 	},
 	shield: function() {
+		countItems.shield++;
 		hasShield = true;
 	}
 } 
@@ -356,8 +406,8 @@ function createField(width, height) {
 	playerX	= 0;
 	playerY = 0;
 	timeCounter.max = 60;
-	itemsCounter.max = 60;
-	speedCounter.max = 15;
+	itemsCounter.max = 120;
+	speedCounter.max = 20;
 	playTime.min = "00";
 	playTime.sec = "00";
 	countItems.field = 0;
@@ -370,26 +420,27 @@ function createField(width, height) {
 	hasShield = false;
 	way = 'right';
 	deg='0deg';
+	buttonsFlag = 'game'
 	makeTime(playTime);
 	$('.play-score span').text(gameScore);
 	$('#play-field').empty();
 	for (let rowId=0; rowId < height; rowId++) {
 		fieldStr += '<div class="play-row">';
 		for (let cellId = 0; cellId < width; cellId++) {
-			fieldStr += '<div class="play-cell" data-type="empty"></div>';
+			fieldStr += '<div class="play-cell" data-type="empty" style="opacity: 0;"></div>';
 		}
 		fieldStr += '</div>'
 	}
 	$('#play-field').append(fieldStr);
 	refreshFieldArray();
-	// $('.play-cell').each(function() {
-	// 	let cooldown = (Math.random().toFixed(3))*1000 + 500;
-	// 	$(this).delay(100).animate({opacity: 1}, cooldown)
-	// })
+	$('.play-cell').each(function() {
+		let cooldown = (Math.random().toFixed(3))*1000 + 500;
+		$(this).delay(100).animate({opacity: 1}, cooldown)
+	})
 	$('.play-cell').attr('data-type', 'empty');
 	makePlayer();
+	setTimeout(() => {gameInterval = setInterval(() => play(), fps)}, 1000)
 	
-	gameInterval = setInterval(() => play(), fps)
 }
 
 
@@ -404,12 +455,35 @@ function play() {
 		// arguments[2].go();
 }
 
-createField(8,8);
 
+$('#start').click(start);
 
 $('#score').click(scoreShow);
+
+
 $('.score-btn-back').on('click', scoreHide);
+
+
 
 $('.play-cell').on('click', function() { alert($(this).attr('data-type'))})
 
-$('.play-btn.back').click(() => c.max += 10);
+
+
+
+$('.play-btn.back').mousedown(() => {
+					clearInterval(gameInterval);
+					buttonsFlag	= 'exitGame';
+					$('.play-state').append("<h1>Are you sure?</h1><button id='menu'>Yes</button><button id='no'>No</button>").css('display', 'flex').animate({opacity: 1}, 500);
+					$('#no').click(() => {
+							buttonsFlag = 'game';
+							gameInterval = setInterval(() => play(), fps);
+							$('.play-state').css({display: 'none', opacity: 0}).empty();})
+					$('#menu').mousedown(() => exit());
+});
+
+
+
+
+$('.play-btn.pause').mousedown(() => {
+	pause();
+})
