@@ -59,8 +59,8 @@ span.cockroach-text {
 	font-size: 	192px;
 	font-weight: bold;
 	text-shadow: 2px 2px rgba(0, 0, 0, .6);
-	text-indent: .4em;
-	text-align: center;
+/*	text-indent: .4em;
+*/	text-align: center;
 	display: block;
 	-webkit-user-select: none;
     -moz-user-select: none;
@@ -83,6 +83,7 @@ span.cockroach-text {
 }
 
 .buttons-wrap  ul{
+	padding: 0;
 	display: flex;
 	height:	30vh;
 	flex-direction: column;
