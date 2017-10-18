@@ -62,37 +62,54 @@ let touchstartY = 0;
 let touchendX = 0;
 let touchendY = 0;
 
-let gesuredZone = document.body;
 
-gesuredZone.addEventListener('touchstart', function(event) {
-    touchstartX = event.screenX;
-    touchstartY = event.screenY;
-}, false);
 
-gesuredZone.addEventListener('touchend', function(event) {
-    touchendX = event.screenX;
-    touchendY = event.screenY;
-    handleGesure();
-}, false); 
 
-function handleGesure() {
-    if (touchendX < touchstartX) {
-    	way = 'left';
-		rotatePlayer('180deg');
-    }
-    if (touchendX > touchstartX) {
-        way = 'right';
-		rotatePlayer('0deg');
-    }
-    if (touchendY < touchstartY) {
-        way = 'down';
-		rotatePlayer('90deg');
-    }
-    if (touchendY > touchstartY) {
-        way = 'up';
-		rotatePlayer('-90deg');
-    }
-}
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+let xDown = null;                                                        
+let yDown = null;                                                        
+
+
+function handleTouchStart(evt) {                                         
+	xDown = evt.touches[0].clientX;                                      
+	yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+	if ( ! xDown || ! yDown ) {
+		return;
+	}
+
+	let xUp = evt.touches[0].clientX;                                    
+	let yUp = evt.touches[0].clientY;
+
+	let xDiff = xDown - xUp;
+	let yDiff = yDown - yUp;
+
+	if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+		if ( xDiff > 0 ) {
+			way = 'left';
+			rotatePlayer('180deg');
+		} else {
+			way = 'right';
+			rotatePlayer('0deg');
+
+		}                       
+	} else {
+		if ( yDiff > 0 ) {
+			way = 'up';
+			rotatePlayer('-90deg');
+		} else { 
+			way = 'down';
+			rotatePlayer('90deg');
+		}                                                                 
+	}
+	/* reset values */
+	xDown = null;
+	yDown = null;                                             
+};
 
 
 
